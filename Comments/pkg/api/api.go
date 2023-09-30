@@ -9,6 +9,8 @@ import (
 	"github.com/gorilla/mux"
 )
 
+var FilterHost = "localhost"
+
 type API struct {
 	r  *mux.Router
 	db storage.Interface

@@ -6,6 +6,11 @@ import (
 	"github.com/gorilla/mux"
 )
 
+var (
+	NewsHost     = "localhost"
+	CommentsHost = "localhost"
+)
+
 type API struct {
 	r *mux.Router
 }

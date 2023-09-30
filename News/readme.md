@@ -55,3 +55,11 @@ Method GET: `<host>:2000/news/search?value`
 
 Method GET: `<host>:2000/news/<postid>`
 Получить новость по ее id
+
+# Сборка докер образа
+
+сбор doccker образа
+`make build`
+
+Запуск докер контейнера
+`make run`

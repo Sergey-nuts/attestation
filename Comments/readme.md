@@ -1,5 +1,11 @@
 # Сервис комментариев
 
+## env
+
+необязательный env для смены хоста сервиса фильтрации
+
+filter=yourFilterHost
+
 ## Методы сервиса Comments:
 
 Method GET: `<host>:2010/comments/<postid>` 
@@ -18,3 +24,11 @@ request JSON:
     "pubtime": "2023-09-22T13:07:08+03:00"
 }
 ```
+
+## Сборка докер образа
+
+сбор doccker образа
+`make build`
+
+Запуск докер контейнера
+`make run`

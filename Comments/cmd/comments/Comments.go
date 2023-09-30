@@ -12,6 +12,11 @@ func main() {
 	postgrUser := os.Getenv("dbuser")
 	postgrPwd := os.Getenv("dbpass")
 	dbhost := os.Getenv("dbhost")
+	filter := os.Getenv("filter")
+	if filter != "" {
+		api.FilterHost = filter
+	}
+
 	db, err := postgr.New("postgres://" + postgrUser + ":" + postgrPwd + "@" + dbhost + "/Comments")
 	if err != nil {
 		log.Fatal(err)

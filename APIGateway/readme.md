@@ -1,5 +1,12 @@
 # Сервис APIGateway
 
+## env
+
+Необязательные env для смены хостов сервисов кс которыми взаимодействует APIGateway
+
+news=yourNewsHost
+comments=yourCommentsHost
+
 ## методы сервиса APIGateway:
 
 Method GET: `<host>:8080/news?page`
@@ -24,3 +31,11 @@ request JSON:
 
 Method GET `<host>:8080/news/search?value`
 поиск новостей по названию
+
+## Сборка докер образа
+
+сбор doccker образа
+`make build`
+
+Запуск докер контейнера
+`make run`

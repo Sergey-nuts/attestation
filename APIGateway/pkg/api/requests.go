@@ -21,7 +21,8 @@ type res struct {
 // отправляет запрос в микросервис новостей для получения новости
 func postReq(wg *sync.WaitGroup, ctx context.Context, id int, result chan<- res) {
 	defer wg.Done()
-	url := fmt.Sprintf("http://localhost:2000/news/%d", id)
+	// url := fmt.Sprintf("http://localhost:2000/news/%d", id)
+	url := fmt.Sprintf("http://%s:2000/news/%d", NewsHost, id)
 	req, err := http.NewRequestWithContext(ctx, http.MethodGet, url, nil)
 	if err != nil {
 		result <- res{err: err}
@@ -51,7 +52,8 @@ func postReq(wg *sync.WaitGroup, ctx context.Context, id int, result chan<- res)
 // отправляет запрос в микросервис комментариев для получения комментариев
 func commentsReq(wg *sync.WaitGroup, ctx context.Context, id int, result chan<- res) {
 	defer wg.Done()
-	url := fmt.Sprintf("http://localhost:2010/comments/%d", id)
+	// url := fmt.Sprintf("http://localhost:2010/comments/%d", id)
+	url := fmt.Sprintf("http://%s:2010/comments/%d", CommentsHost, id)
 	req, err := http.NewRequestWithContext(ctx, http.MethodGet, url, nil)
 	if err != nil {
 		result <- res{err: err}

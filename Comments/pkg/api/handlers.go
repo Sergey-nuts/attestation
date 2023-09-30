@@ -50,7 +50,8 @@ func (api *API) addCommentsHandler(w http.ResponseWriter, r *http.Request) {
 		Text string `json:"text"`
 	}
 	m := massage{Text: item.Text}
-	url := "http://localhost:2020/filter"
+	// url := "http://localhost:2020/filter"
+	url := fmt.Sprintf("http://%s:2020/filter", FilterHost)
 	requestId := r.Context().Value(requestIdHeader)
 	body, err := json.Marshal(m)
 	if err != nil {

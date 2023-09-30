@@ -56,7 +56,8 @@ func (api *API) newsShortDetailedHandler(w http.ResponseWriter, r *http.Request)
 
 	// подготовка запроса к сервису новостей
 	client := newClient()
-	url := "http://localhost:2000/news"
+	// url := "http://localhost:2000/news"
+	url := fmt.Sprintf("http://%s:2000/news", NewsHost)
 	req, err := http.NewRequestWithContext(r.Context(), http.MethodGet, url, nil) // ctx
 	if err != nil {
 		// log.Printf("newsShortHandler err: %v\n", err)
@@ -144,7 +145,8 @@ func (api *API) newsFullDetailedHandler(w http.ResponseWriter, r *http.Request) 
 // добавленик комментария к новости
 func (api *API) commentsHandler(w http.ResponseWriter, r *http.Request) {
 	// подготовка запроса в сервис комментариев
-	url := "http://localhost:2010/comments"
+	// url := "http://localhost:2010/comments"
+	url := fmt.Sprintf("http://%s:2010/comments", CommentsHost)
 	requestId := r.Context().Value(requestIdHeader)
 	req, err := http.NewRequestWithContext(r.Context(), http.MethodPost, url, r.Body)
 	if err != nil {
@@ -175,7 +177,8 @@ func (api *API) commentsHandler(w http.ResponseWriter, r *http.Request) {
 // поис новостей по названию
 func (api *API) searchHandler(w http.ResponseWriter, r *http.Request) {
 	search := r.URL.Query().Get("value")
-	url := "http://localhost:2000/news/search"
+	// url := "http://localhost:2000/news/search"
+	url := fmt.Sprintf("http://%s:2000/news/search", NewsHost)
 	requestId := r.Header.Get(requestIdHeader)
 
 	req, err := http.NewRequestWithContext(r.Context(), http.MethodGet, url, nil)

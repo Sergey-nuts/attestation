@@ -12,3 +12,11 @@ request JSON:
     "text": "HA - HA"
 }
 ```
+
+## Сборка докер образа
+
+сбор doccker образа
+`make build`
+
+Запуск докер контейнера
+`make run`
